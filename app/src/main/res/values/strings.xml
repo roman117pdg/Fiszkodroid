@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">lab_cztery</string>
+    <string name="task_title">Tytul</string>
+    <string name="task_description">Opis</string>
+    <string name="add_task">Dodaj</string>
+    <string name="default_title">Domyslny tytul</string>
+    <string name="default_description">Domyslny opis</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="item_selected_msg">krótki kilk task</string>
+    <string name="delete_question">Czy chcesz usunąc ?</string>
+    <string name="dialog_confirm">tak, poprosze</string>
+    <string name="dialog_canceled">bron boze NIE!!!</string>
+    <string name="delete_dialog_tag">jakis tag do delete dialog w main</string>
+    <string name="long_click_msg">dlugi klik task</string>
+    <string name="delete_cancel_msg">wiadomosc ze nei usunieto</string>
+    <string name="retry_msg">wiadomosc zeby \"retry\"</string>
+</resources>
