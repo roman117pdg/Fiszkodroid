@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity
 
     public static final String taskExtra = "taskExtra";
     private int currentItemPosition = -1;
+    private TaskListContent.Task currentTask;
+    private final String CURRENT_TASK_KEY = "CurrentTask";
 
 
 
@@ -29,9 +31,27 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (savedInstanceState != null) {
+            currentTask = savedInstanceState.getParcelable(CURRENT_TASK_KEY);
+        }
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            if(currentTask != null)
+                displayTaskInFragment(currentTask);
+        }
     }
 
-    private void startSecondActivity(TaskListContent.Task task, int position){
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        if (currentTask != null)
+            outState.putParcelable(CURRENT_TASK_KEY, currentTask);
+        super.onSaveInstanceState(outState);
+    }
+
+        private void startSecondActivity(TaskListContent.Task task, int position){
         Intent intent = new Intent(this,TaskInfoActivity.class);
         intent.putExtra(taskExtra,task);
         startActivity(intent);
@@ -83,6 +103,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentClickInteraction(TaskListContent.Task task, int position) {
+        currentTask = task;
         Toast.makeText(this,getString(R.string.item_selected_msg)+position,Toast.LENGTH_SHORT).show();
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             displayTaskInFragment(task);

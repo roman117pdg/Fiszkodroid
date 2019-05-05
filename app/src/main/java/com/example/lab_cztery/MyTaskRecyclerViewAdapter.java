@@ -1,6 +1,7 @@
 package com.example.lab_cztery;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -60,6 +61,10 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
                         taskDrawable = context.getResources().getDrawable(R.drawable.circle_drawable_green);
                 }
                 holder.mItemImageView.setImageDrawable(taskDrawable);
+            }else{
+                Bitmap cameraImage = PicUtils.decodePic(task.picPath,
+                        60,60);
+                holder.mItemImageView.setImageBitmap(cameraImage);
             }
         }else{
             holder.mItemImageView.setImageDrawable(context.getResources().getDrawable(R.drawable.circle_drawable_green));

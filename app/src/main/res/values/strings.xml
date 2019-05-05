@@ -16,4 +16,6 @@
     <string name="long_click_msg">dlugi klik task</string>
     <string name="delete_cancel_msg">wiadomosc ze nei usunieto</string>
     <string name="retry_msg">wiadomosc zeby \"retry\"</string>
+    <string name="myFileprovider">com.example.lab_cztery.fileprovider</string>
+
 </resources>

@@ -60,6 +60,11 @@ public class TaskListContent {
 
     }
 
+    public static void clearList(){
+        ITEMS.clear();
+        ITEM_MAP.clear();
+    }
+
     /**
      * A dummy item representing a piece of content.
      */
@@ -67,7 +72,7 @@ public class TaskListContent {
         public final String id;
         public final String title;
         public final String details;
-        public final String picPath;
+        public String picPath;
 
         public Task(String id, String title, String details) {
             this.id = id;
@@ -101,6 +106,10 @@ public class TaskListContent {
                 return new Task[size];
             }
         };
+
+        public void setPicPath(String path){
+            this.picPath = path;
+        }
 
         @Override
         public String toString() {

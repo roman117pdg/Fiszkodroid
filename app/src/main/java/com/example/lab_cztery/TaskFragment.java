@@ -1,6 +1,8 @@
 package com.example.lab_cztery;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -51,6 +53,17 @@ public class TaskFragment extends Fragment {
             recyclerView.setAdapter(mRecyclerViewAdapter);
         }
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode == Activity.RESULT_OK){
+            if(data != null){
+                boolean changeDataSet = data.getBooleanExtra(TaskInfoActivity.DATA_CHANGED_KEY,false);
+                if(changeDataSet)
+                    notifyDataChange();
+            }
+        }
     }
 
 
